@@ -52,6 +52,7 @@ class OptionSelectBuilder implements OptionSelectBuilderInterface
                 'attribute_code' => 'attribute.attribute_code',
                 'value_index' => 'entity_value.value',
                 'super_attribute_label' => 'attribute_label.value',
+                'sort_order' => 'attribute_option.sort_order',
             ]
         )->joinInner(
             ['product_entity' => $this->attributeResource->getTable('catalog_product_entity')],
