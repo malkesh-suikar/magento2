@@ -320,7 +320,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
                 $item->getProductId()
             );
             foreach ($options as $option) {
-                $values[$itemId . ':' . $option['value_index']] = [
+                $values[$itemId . ':' . $option['value_index'] . ':' . $option['sort_order']] = [
                     'value_index' => $option['value_index'],
                     'label' => $option['option_title'],
                     'product_super_attribute_id' => $itemId,
@@ -329,6 +329,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
                     'use_default_value' => true
                 ];
             }
+            ksort($values);
             $values = array_values($values);
             $item->setOptions($values);
         }
